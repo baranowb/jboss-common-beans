@@ -37,7 +37,7 @@ public class ByteEditor extends PropertyEditorSupport<Byte> {
      */
     @Override
     public void setAsText(final String text) {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             setValue(null);
             return;
         }

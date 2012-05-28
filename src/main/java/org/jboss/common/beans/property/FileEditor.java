@@ -37,7 +37,7 @@ public class FileEditor extends PropertyEditorSupport<File> {
 
     @Override
     public void setAsText(final String text) {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             setValue(null);
         } else {
             try {

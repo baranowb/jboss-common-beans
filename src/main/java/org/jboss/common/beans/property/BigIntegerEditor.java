@@ -36,7 +36,7 @@ public class BigIntegerEditor extends PropertyEditorSupport<BigInteger> {
 
     @Override
     public void setAsText(final String text) {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             setValue(null);
         } else {
             try {

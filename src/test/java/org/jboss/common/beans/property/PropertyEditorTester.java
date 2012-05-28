@@ -50,8 +50,7 @@ public abstract class PropertyEditorTester<T> {
         // initialize locale, this is done for date editor, it wont pass test unless its run on EN system :).
         Locale testLocale = Locale.US;
         Locale.setDefault(testLocale);
-        // init editors
-        PropertyEditors.init();
+      
     }
 
     @Test
@@ -59,7 +58,7 @@ public abstract class PropertyEditorTester<T> {
 
         // test
         Class<T> type = getType();
-        PropertyEditor editor = PropertyEditors.findEditor(type);
+        PropertyEditor editor = PropertyEditorInstanceFinder.findEditor(type);
 
         String[] inputData = getInputData();
         Object[] expectedData = getOutputData();

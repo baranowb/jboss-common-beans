@@ -108,7 +108,7 @@ public class DateEditor extends PropertyEditorSupport<Date> {
      */
     @Override
     public void setAsText(String text) {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             setValue(null);
             return;
         }

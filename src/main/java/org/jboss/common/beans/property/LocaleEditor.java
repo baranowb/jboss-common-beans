@@ -37,7 +37,7 @@ public class LocaleEditor extends PropertyEditorSupport<Locale> {
 
     @Override
     public void setAsText(String text) {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             setValue(null);
             return;
         }

@@ -56,7 +56,7 @@ public class GenericArrayPropertyEditor<T> extends PropertyEditorSupport<T> {
 
         this.cellType = initType.getComponentType();
         // generic interface.
-        java.beans.PropertyEditor cellPropertyEditor = PropertyEditors.findEditor(this.cellType);
+        java.beans.PropertyEditor cellPropertyEditor = PropertyEditorInstanceFinder.findEditor(this.cellType);
         // jic
         if (cellPropertyEditor == null) {
             throw new IllegalArgumentException("No editor found for '" + this.cellType + "'");
@@ -70,12 +70,12 @@ public class GenericArrayPropertyEditor<T> extends PropertyEditorSupport<T> {
      */
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
-        if (PropertyEditors.isNull(text)) {
+        if (PropertyEditorInstanceFinder.isNull(text)) {
             this.setValue(null);
             return;
         }
         // generic interface.
-        java.beans.PropertyEditor cellPropertyEditor = PropertyEditors.findEditor(this.cellType);
+        java.beans.PropertyEditor cellPropertyEditor = PropertyEditorInstanceFinder.findEditor(this.cellType);
 
         String[] cellStringValues = tokenize(text);
         Object reflectiveArray = Array.newInstance(this.cellType, cellStringValues.length);
@@ -100,7 +100,7 @@ public class GenericArrayPropertyEditor<T> extends PropertyEditorSupport<T> {
             return null;
         }
         // generic interface.
-        java.beans.PropertyEditor cellPropertyEditor = PropertyEditors.findEditor(this.cellType);
+        java.beans.PropertyEditor cellPropertyEditor = PropertyEditorInstanceFinder.findEditor(this.cellType);
 
         int length = Array.getLength(reflectiveArray);
         String[] cellStringValues = new String[length];

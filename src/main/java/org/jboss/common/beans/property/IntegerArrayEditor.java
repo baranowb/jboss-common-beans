@@ -25,9 +25,9 @@ package org.jboss.common.beans.property;
  * A property editor for int[].
  *
  */
-public class IntArrayEditor extends GenericArrayPropertyEditor<int[]> {
+public class IntegerArrayEditor extends GenericArrayPropertyEditor<int[]> {
 
-    public IntArrayEditor() {
+    public IntegerArrayEditor() {
         super(int[].class);
 
     }
